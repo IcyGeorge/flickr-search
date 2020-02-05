@@ -13,7 +13,8 @@ import javax.inject.Singleton
     modules = [
         AppModule::class,
         AndroidSupportInjectionModule::class,
-        FlickrPhotosModule::class
+        FlickrPhotosModule::class,
+        FlickrPhotoDetailModule::class
     ])
 interface AppComponent : AndroidInjector<App> {
 

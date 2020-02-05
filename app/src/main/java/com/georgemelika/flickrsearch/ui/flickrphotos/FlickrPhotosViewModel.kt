@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.georgemelika.flickrsearch.Event
 import com.georgemelika.flickrsearch.R
 import com.georgemelika.flickrsearch.repository.FlickrRepository
 import com.georgemelika.flickrsearch.vo.FlickrPhoto
@@ -27,6 +28,9 @@ class FlickrPhotosViewModel @Inject constructor(private val repository: FlickrRe
     private val _noPhotosLabel = MutableLiveData<Int>()
     val noPhotosLabel: LiveData<Int> = _noPhotosLabel
 
+    private val _openPhotoEvent = MutableLiveData<Event<FlickrPhoto>>()
+    val openPhotoEvent: LiveData<Event<FlickrPhoto>> = _openPhotoEvent
+
     fun searchFor(query: String) {
         _dataLoading.value = true
         viewModelScope.launch {
@@ -46,6 +50,6 @@ class FlickrPhotosViewModel @Inject constructor(private val repository: FlickrRe
     }
 
     fun openFlickrPhoto(item: FlickrPhoto) {
-
+        _openPhotoEvent.value = Event(item)
     }
 }

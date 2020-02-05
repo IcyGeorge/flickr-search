@@ -6,5 +6,20 @@
     <fragment
         android:id="@+id/flickrPhotosFragment"
         android:name="com.georgemelika.flickrsearch.ui.flickrphotos.FlickrPhotosFragment"
-        android:label="FlickrPhotosFragment" />
+        android:label="FlickrPhotosFragment" >
+        <action
+            android:id="@+id/showFlickrPhotoDetail"
+            app:destination="@id/flickrPhotoDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/flickrPhotoDetailFragment"
+        android:name="com.georgemelika.flickrsearch.ui.flickrphotodetail.FlickrPhotoDetailFragment"
+        android:label="FlickrPhotoDetailFragment" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="imageUrl"
+            app:argType="string" />
+    </fragment>
 </navigation>
