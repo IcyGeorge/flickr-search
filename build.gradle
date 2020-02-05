@@ -37,5 +37,6 @@ ext {
     retrofitVersion = '2.7.1'
     RxJavaVersion = '2.2.17'
     daggerVersion = '2.26'
-
+    glideVersion = '4.11.0'
+    okhttpVersion = '3.14.6'
 }

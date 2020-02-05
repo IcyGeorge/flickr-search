@@ -1,14 +1,15 @@
 package com.georgemelika.flickrsearch.vo
 
+import android.util.Log
 import com.google.gson.annotations.SerializedName
 
 data class FlickrPhoto(
     @SerializedName("id")
-    var id: Int,
+    var id: String,
     @SerializedName("owner")
     var owner: String?,
     @SerializedName("secret")
-    var secret: String?,
+    var secret: String,
     @SerializedName("server")
     var server: String,
     @SerializedName("farm")
@@ -16,13 +17,13 @@ data class FlickrPhoto(
     @SerializedName("title")
     var title: String?,
     @SerializedName("ispublic")
-    var isPublic: Boolean,
+    var isPublic: Int,
     @SerializedName("isfriend")
-    var isFriend: Boolean,
+    var isFriend: Int,
     @SerializedName("isfamily")
-    var isFamily: Boolean
+    var isFamily: Int
 ) {
-    val imageUrl: String by lazy {
-        "http://farm$farm.static.flickr.com/$server/${id}_$secret.jpg"
+    fun imageUrl(): String {
+        return "https://farm$farm.static.flickr.com/$server/${id}_$secret.jpg"
     }
 }
