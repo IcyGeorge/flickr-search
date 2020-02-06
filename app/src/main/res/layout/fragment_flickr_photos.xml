@@ -24,14 +24,16 @@
             android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:items="@{viewmodel.items}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="2"
-            app:items="@{viewmodel.items}"/>
+            app:spanCount="2" />
 
         <TextView
             android:id="@+id/noPhotosTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/no_photos"
+            android:visibility="@{viewmodel.isDataLoadingError ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

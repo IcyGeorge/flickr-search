@@ -21,7 +21,9 @@ data class FlickrPhoto(
     @SerializedName("isfriend")
     var isFriend: Int,
     @SerializedName("isfamily")
-    var isFamily: Int
+    var isFamily: Int,
+    @SerializedName("url_o")
+    var imageUrlOriginal: String?
 ) {
     fun imageUrl(): String {
         return "https://farm$farm.static.flickr.com/$server/${id}_$secret.jpg"

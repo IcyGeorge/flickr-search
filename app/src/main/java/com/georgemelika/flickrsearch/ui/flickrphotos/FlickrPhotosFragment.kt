@@ -3,6 +3,7 @@ package com.georgemelika.flickrsearch.ui.flickrphotos
 import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
+import android.os.IBinder
 import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
@@ -41,6 +42,7 @@ class FlickrPhotosFragment : BaseFragment() {
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String): Boolean {
                     viewModel.searchFor(query)
+                    dismissKeyboard(windowToken)
                     return true
                 }
 
@@ -77,7 +79,7 @@ class FlickrPhotosFragment : BaseFragment() {
     private fun openPhotoDetail(flickrPhoto: FlickrPhoto) {
         val action = FlickrPhotosFragmentDirections.showFlickrPhotoDetail(
             flickrPhoto.title ?: "",
-            flickrPhoto.imageUrl()
+            flickrPhoto.imageUrlOriginal ?: flickrPhoto.imageUrl()
         )
         findNavController().navigate(action)
     }
