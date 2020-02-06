@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.georgemelika.flickrsearch.base.BaseFragment;
@@ -37,5 +38,7 @@ public class FlickrPhotoDetailFragment extends BaseFragment {
         String title = FlickrPhotoDetailFragmentArgs.fromBundle(getArguments()).getTitle();
         String imageUrl = FlickrPhotoDetailFragmentArgs.fromBundle(getArguments()).getImageUrl();
         viewModel.start(title, imageUrl);
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(title);
     }
 }

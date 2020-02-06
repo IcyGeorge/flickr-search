@@ -6,7 +6,7 @@
     <fragment
         android:id="@+id/flickrPhotosFragment"
         android:name="com.georgemelika.flickrsearch.ui.flickrphotos.FlickrPhotosFragment"
-        android:label="FlickrPhotosFragment" >
+        android:label="@string/app_name" >
         <action
             android:id="@+id/showFlickrPhotoDetail"
             app:destination="@id/flickrPhotoDetailFragment" />
@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/flickrPhotoDetailFragment"
         android:name="com.georgemelika.flickrsearch.ui.flickrphotodetail.FlickrPhotoDetailFragment"
-        android:label="FlickrPhotoDetailFragment" >
+        android:label="@string/app_name" >
         <argument
             android:name="title"
             app:argType="string" />
