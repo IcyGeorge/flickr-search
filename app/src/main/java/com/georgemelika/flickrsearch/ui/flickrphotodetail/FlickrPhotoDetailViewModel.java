@@ -16,7 +16,7 @@ public class FlickrPhotoDetailViewModel extends ViewModel {
     private MutableLiveData<String> title = new MutableLiveData<>();
     private MutableLiveData<String> imageUrl = new MutableLiveData<>();
 
-    public void start(String title, String imageUrl) {
+    void start(String title, String imageUrl) {
         this.title.setValue(title);
         this.imageUrl.setValue(imageUrl);
     }

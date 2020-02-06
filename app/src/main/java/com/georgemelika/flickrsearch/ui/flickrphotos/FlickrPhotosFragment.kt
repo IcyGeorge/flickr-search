@@ -3,7 +3,6 @@ package com.georgemelika.flickrsearch.ui.flickrphotos
 import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
-import android.os.IBinder
 import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
@@ -47,9 +46,6 @@ class FlickrPhotosFragment : BaseFragment() {
                 }
 
                 override fun onQueryTextChange(query: String): Boolean {
-                    if (query.isEmpty()) {
-                        viewModel.clearResults()
-                    }
                     return true
                 }
             })
@@ -73,7 +69,6 @@ class FlickrPhotosFragment : BaseFragment() {
         viewModel.openPhotoEvent.observe(viewLifecycleOwner, EventObserver {
             openPhotoDetail(it)
         })
-
     }
 
     private fun openPhotoDetail(flickrPhoto: FlickrPhoto) {

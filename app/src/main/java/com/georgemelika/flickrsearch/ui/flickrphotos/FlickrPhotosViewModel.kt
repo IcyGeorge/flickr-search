@@ -1,21 +1,19 @@
 package com.georgemelika.flickrsearch.ui.flickrphotos
 
-import android.util.Log
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.georgemelika.flickrsearch.Event
-import com.georgemelika.flickrsearch.R
 import com.georgemelika.flickrsearch.repository.FlickrRepository
 import com.georgemelika.flickrsearch.vo.FlickrPhoto
-import com.georgemelika.flickrsearch.vo.Result
-import com.georgemelika.flickrsearch.vo.Result.Error
 import com.georgemelika.flickrsearch.vo.Result.Success
 import kotlinx.coroutines.launch
-import java.util.ArrayList
+import java.util.*
 import javax.inject.Inject
 
 class FlickrPhotosViewModel @Inject constructor(private val repository: FlickrRepository) :
     ViewModel() {
-
 
     private val _items = MutableLiveData<List<FlickrPhoto>>().apply { value = emptyList() }
     val items: LiveData<List<FlickrPhoto>> = _items
@@ -25,7 +23,6 @@ class FlickrPhotosViewModel @Inject constructor(private val repository: FlickrRe
 
     private val _isDataLoadingError = MutableLiveData<Boolean>()
     val isDataLoadingError: LiveData<Boolean> = _isDataLoadingError
-
 
     private val _openPhotoEvent = MutableLiveData<Event<FlickrPhoto>>()
     val openPhotoEvent: LiveData<Event<FlickrPhoto>> = _openPhotoEvent
@@ -45,10 +42,6 @@ class FlickrPhotosViewModel @Inject constructor(private val repository: FlickrRe
             }
             _dataLoading.value = false
         }
-    }
-
-    fun clearResults() {
-
     }
 
     fun openFlickrPhoto(item: FlickrPhoto) {
